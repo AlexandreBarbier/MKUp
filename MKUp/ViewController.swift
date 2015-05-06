@@ -8,7 +8,6 @@
 
 import UIKit
 import ABUIKit
-import ABCrashLog
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, MKViewDelegate, UIDocumentInteractionControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -186,7 +185,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     func showProject(sender:UIButton) {
-        var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectDetailVC") as ProjectDetailViewController
+        var projectVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProjectDetailVC") as! ProjectDetailViewController
         projectVC.project = currentProject!
         projectVC.completion = { (selectedIndex:Int) -> Void in
             var offset = CGFloat(selectedIndex) * self.view.frame.size.width
@@ -220,7 +219,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if currentProject?.name == "" {
             var alert = UIAlertController(title: "Project Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Save", style: .Default, handler: { (_) -> Void in
-                let name = alert.textFields![0] as UITextField
+                let name = alert.textFields![0] as! UITextField
                 self.currentProject = MKProject(name: name.text)
                 self.saveProject(nil)
                 self.loadProject(self.currentProject!)
@@ -264,27 +263,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 v.viewDelegate = self
                 self.projectRootView.insertSubview(v, belowSubview: self.projectTools)
                 
-                for subV : UIView in v.subviews as [UIView] {
+                for subV : UIView in v.subviews as! [UIView] {
                     if subV.isKindOfClass(MKView.self) {
-                        var k = subV as MKView
+                        var k = subV as! MKView
                         k.controller = self
                         k.viewDelegate = self
                     }
                     if subV.isKindOfClass(MKImageView.self) {
-                        var k = subV as MKImageView
+                        var k = subV as! MKImageView
                         k.delegate = self
                     }
                     if subV.isKindOfClass(MKText.self) {
-                        var k = subV as MKText
+                        var k = subV as! MKText
                         k.delegate = self
                     }
                     if subV.isKindOfClass(MKTableView.self) {
-                        var k = subV as MKTableView
+                        var k = subV as! MKTableView
                         k.delegate = self
     
                     }
                     if subV.isKindOfClass(MKCollectionView.self) {
-                        var k = subV as MKCollectionView
+                        var k = subV as! MKCollectionView
                         k.delegate = self
                     }
                 }
@@ -296,7 +295,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func projectToolButtonTouched(sender: UIButton) {
-        var projectVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ProjectManagerVC") as ProjectManagerViewController
+        var projectVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ProjectManagerVC") as! ProjectManagerViewController
         self.presentViewController(projectVC, animated: true, completion: nil)
     }
     
@@ -472,8 +471,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            var imgV = self.view.viewWithTag(picker.view.tag) as MKImageView
-            var t = info[UIImagePickerControllerOriginalImage] as UIImage
+            var imgV = self.view.viewWithTag(picker.view.tag) as! MKImageView
+            var t = info[UIImagePickerControllerOriginalImage] as! UIImage
             imgV.setImage(t)
             picker.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -496,7 +495,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var mktable = tableView.superview as MKTableView
+        var mktable = tableView.superview as! MKTableView
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")

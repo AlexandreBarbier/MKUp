@@ -34,24 +34,7 @@ class MKImageView: MKView {
     override func encodeWithCoder(aCoder: NSCoder) {
         super.encodeWithCoder(aCoder)
     }
-    
-    override init() {
-        super.init()
         
-        imageV.frame = CGRect(x: 0,y: 0, width: self.frame.size.width,height: self.frame.size.height)
-        
-        imageV.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        self.imageV.image = UIImage(named: "imageIcon")
-        self.addSubview(imageV)
-        
-        self.longPressActions.append(UIAlertAction(title: "Library", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
-            self.pickerView.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            self.pickerView.delegate = self.delegate
-            self.pickerView.view.tag = self.tag
-            self.controller?.presentViewController(self.pickerView, animated: true, completion: nil)
-        }))
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

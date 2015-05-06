@@ -71,7 +71,7 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
     }
     
     func addNote(sender:UIButton) -> Void {
-       var noteView = self.storyboard!.instantiateViewControllerWithIdentifier("NoteVC") as NotesViewController
+       var noteView = self.storyboard!.instantiateViewControllerWithIdentifier("NoteVC") as! NotesViewController
         noteView.project = self.project
         self.presentViewController(noteView, animated: true, completion: nil)
     }
@@ -185,7 +185,7 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var item = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as ProjectViewCell
+        var item = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ProjectViewCell
         item.imageView.image = dataSource[indexPath.row]
         return item
     }
@@ -205,7 +205,7 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
         }
         else {
             
-            var cell = collectionView.cellForItemAtIndexPath(indexPath) as ProjectViewCell
+            var cell = collectionView.cellForItemAtIndexPath(indexPath) as! ProjectViewCell
             var index = -1
             var counter = 0
             if selectedCells.count > 0 {
@@ -259,10 +259,10 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
             self.project.nbView = dataSource.count
             self.project.save()
             if self.presentingViewController != nil {
-                var pres = self.presentingViewController as ViewController
+                var pres = self.presentingViewController as! ViewController
                 pres.loadProject(self.project)
                 for index in selectedCells {
-                    var cell = collectionView!.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as ProjectViewCell
+                    var cell = collectionView!.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as! ProjectViewCell
                     cell.border(UIColor.MKDarkBrownColor(), width: 0.0)
                 }
             }
@@ -278,7 +278,7 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
             return false
         }
         for index in selectedCells {
-            var cell = collectionView!.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as ProjectViewCell
+            var cell = collectionView!.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as! ProjectViewCell
             cell.border(UIColor.MKDarkBrownColor(), width: 0.0)
             indexes.append(NSIndexPath(forItem: index, inSection: 0))
             var v = self.project.views.removeAtIndex(index) as MKView
@@ -290,7 +290,7 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
         self.project.save()
         
         if self.presentingViewController != nil {
-            var pres = self.presentingViewController as ViewController
+            var pres = self.presentingViewController as! ViewController
             pres.loadProject(self.project)
         }
         self.collectionView!.deleteItemsAtIndexPaths(indexes)

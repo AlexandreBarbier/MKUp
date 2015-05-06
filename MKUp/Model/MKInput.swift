@@ -18,7 +18,7 @@ class MKInput: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set placeholder", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set placeholder", style: .Default, handler: { (_) -> Void in
-                let alertText = alert.textFields![0] as UITextField
+                let alertText = alert.textFields![0] as! UITextField
                 self.textF.placeholder = alertText.text + ":"
             })
             alert.addAction(setT)
@@ -48,7 +48,7 @@ class MKInput: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set placeholder", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set placeholder", style: .Default, handler: { (_) -> Void in
-                let alertText = alert.textFields![0] as UITextField
+                let alertText = alert.textFields![0] as! UITextField
                 self.textF.placeholder = alertText.text + ":"
             })
             alert.addAction(setT)

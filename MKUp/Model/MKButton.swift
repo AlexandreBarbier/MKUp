@@ -17,7 +17,7 @@ class MKButton: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set title", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.button.setTitle(textf.text, forState: UIControlState.Normal)
             })
             alert.addAction(setT)
@@ -49,7 +49,7 @@ class MKButton: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set title", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
            var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.button.setTitle(textf.text, forState: UIControlState.Normal)
             })
             alert.addAction(setT)

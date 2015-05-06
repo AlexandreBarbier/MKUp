@@ -24,22 +24,22 @@ class MKProject : NSObject, NSCoding, Printable {
         didSet {
                 for view in self.views {
                   //  view.userInteractionEnabled = !isInPreview
-                    for subv in view.subviews as [UIView] {
+                    for subv in view.subviews as! [UIView] {
     
                         if subv.isKindOfClass(MKCollectionView.self) {
-                            var v = subv as MKCollectionView
+                            var v = subv as! MKCollectionView
                             v.collectionView!.userInteractionEnabled = !v.collectionView!.userInteractionEnabled
                         }
                         else if subv.isKindOfClass(MKTableView.self) {
-                            var v = subv as MKTableView
+                            var v = subv as! MKTableView
                             v.tableview.userInteractionEnabled = !v.tableview.userInteractionEnabled
                         }
                         else if subv.isKindOfClass(MKButton.self) {
-                            var v = subv as MKButton
+                            var v = subv as! MKButton
                             v.button.userInteractionEnabled = !v.button.userInteractionEnabled
                         }
                         else if subv.isKindOfClass(MKSearchBar.self) {
-                            var v = subv as MKSearchBar
+                            var v = subv as! MKSearchBar
                             v.searchBar.userInteractionEnabled = !v.searchBar.userInteractionEnabled
                         }
                         else  {
@@ -88,19 +88,19 @@ class MKProject : NSObject, NSCoding, Printable {
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.views = aDecoder.decodeObjectForKey("views") as [MKView]
-        self.name = aDecoder.decodeObjectForKey("name") as String
+        self.views = aDecoder.decodeObjectForKey("views") as! [MKView]
+        self.name = aDecoder.decodeObjectForKey("name") as! String
         self.creation = aDecoder.decodeObjectForKey("creation") as? NSDate
-        self.update = aDecoder.decodeObjectForKey("update") as NSDate
+        self.update = aDecoder.decodeObjectForKey("update") as! NSDate
         self.fileURL = aDecoder.decodeObjectForKey("fileURL") as? NSURL
         self.preview = aDecoder.decodeObjectForKey("preview") as? UIImage
         self.nbView = self.views.count
-        self.notes = aDecoder.decodeObjectForKey("notes") as NSAttributedString?
+        self.notes = aDecoder.decodeObjectForKey("notes") as! NSAttributedString?
     }
     
     private class func getDirectoryPath() -> String {
         var paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        var documentDirectory = paths[0] as String
+        var documentDirectory = paths[0] as! String
         var bundlePath = NSBundle.mainBundle().bundleIdentifier
         return "\(documentDirectory)/\(bundlePath!).projects"
     }
@@ -139,12 +139,12 @@ class MKProject : NSObject, NSCoding, Printable {
     
     class func load(name:String) -> MKProject? {
         var path = getDirectoryPath()
-        var project = NSKeyedUnarchiver.unarchiveObjectWithFile("\(path)/\(name).mkup") as MKProject?
+        var project = NSKeyedUnarchiver.unarchiveObjectWithFile("\(path)/\(name).mkup") as! MKProject?
         return project
     }
     
-    class func load(url:NSURL) -> MKProject? {
-        var project = NSKeyedUnarchiver.unarchiveObjectWithFile(url.path!) as MKProject?
+    class func loadProject(url:NSURL) -> MKProject? {
+        var project = NSKeyedUnarchiver.unarchiveObjectWithFile(url.path!) as! MKProject?
         project?.fileURL = url
         return project
     }
@@ -180,7 +180,7 @@ class MKProject : NSObject, NSCoding, Printable {
         var k = NSFileManager.defaultManager().contentsOfDirectoryAtPath(path, error: &error)
         var projects : [MKProject]?
         if k != nil {
-            for filename : String in k as [String] {
+            for filename : String in k as! [String] {
                 if projects == nil {
                     projects = []
                 }
@@ -199,7 +199,7 @@ class MKProject : NSObject, NSCoding, Printable {
     
     class func deleteProject(name:String) -> Bool {
         var paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        var documentDirectory = paths[0] as String
+        var documentDirectory = paths[0] as! String
         var bundlePath = NSBundle.mainBundle().bundleIdentifier
         var path = "\(documentDirectory)/\(bundlePath!).projects/\(name).mkup"
         var error : NSError? = NSError()

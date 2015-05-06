@@ -27,7 +27,7 @@ class MKLabel: MKView, MKColorPickerDelegate {
         self.longPressActions.append(UIAlertAction(title: "Set text", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.label.text = textf.text
             })
             alert.addAction(setT)
@@ -57,7 +57,7 @@ class MKLabel: MKView, MKColorPickerDelegate {
         self.longPressActions.append(UIAlertAction(title: "Set text", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set text", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.label.text = textf.text
             })
             alert.addAction(setT)

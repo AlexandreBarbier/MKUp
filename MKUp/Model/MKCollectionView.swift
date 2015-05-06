@@ -37,22 +37,8 @@ class MKCollectionView: MKView {
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
-       
+      
         super.encodeWithCoder(aCoder) 
-    }
-    
-    override init() {
-        super.init()
-                self.clipsToBounds = true
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 90, height: 120)
-        collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
-        collectionView!.backgroundColor = UIColor.clearColor()
-        collectionView!.userInteractionEnabled = false
-                collectionView!.registerNib(UINib(nibName: "MKCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
-        collectionView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        self.addSubview(collectionView!)
     }
     
     override init(frame: CGRect) {

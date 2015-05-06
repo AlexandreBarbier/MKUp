@@ -47,7 +47,7 @@ class ProjectManagerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if self.presentingViewController != nil {
-            var pres = self.presentingViewController as ViewController
+            var pres = self.presentingViewController as! ViewController
             pres.loadProject(self.displayedDataSource![indexPath.row])
             self.closeView()
         }
@@ -84,10 +84,10 @@ class ProjectManagerViewController: UITableViewController {
     func createNewProject() -> Void {
         var alert = UIAlertController(title: "Project Name", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         var setT = UIAlertAction(title: "Create", style: .Default, handler: { (_) -> Void in
-            let name = alert.textFields![0] as UITextField
+            let name = alert.textFields![0] as! UITextField
             var project = MKProject(name: name.text)
             if self.presentingViewController != nil {
-                var pres = self.presentingViewController as ViewController
+                var pres = self.presentingViewController as! ViewController
                 pres.loadProject(project)
                 self.closeView()
             }
@@ -111,7 +111,7 @@ class ProjectManagerViewController: UITableViewController {
         return 70.0
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         cell.backgroundColor = UIColor.MKWhiteColor()
         var currentProject = self.displayedDataSource![indexPath.row]
         cell.textLabel!.text = currentProject.name

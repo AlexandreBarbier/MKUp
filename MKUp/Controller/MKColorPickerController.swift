@@ -53,21 +53,21 @@ class MKColorPickerController: UIViewController {
         blueTextField.userInteractionEnabled = false
         var redGradient = CAGradientLayer(layer: redGradientView.layer)
         redGradient.frame = CGRect(x: 0,y: 0,width: redGradientView.frame.size.width,height: redGradientView.frame.size.height)
-        redGradient.colors = NSArray(objects: UIColor.blackColor().CGColor, UIColor.redColor().CGColor)
+        redGradient.colors = [UIColor.blackColor().CGColor, UIColor.redColor().CGColor]
         redGradient.startPoint = CGPoint(x: 0.0,y: 0.5)
         redGradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         redGradientView.layer.insertSublayer(redGradient, atIndex: 0)
         
         var greenGradient = CAGradientLayer(layer: greenGradientView.layer)
         greenGradient.frame = CGRect(x: 0,y: 0,width: greenGradientView.frame.size.width,height: greenGradientView.frame.size.height)
-        greenGradient.colors = NSArray(objects: UIColor.blackColor().CGColor, UIColor.greenColor().CGColor)
+        greenGradient.colors = [UIColor.blackColor().CGColor, UIColor.greenColor().CGColor]
         greenGradient.startPoint = CGPoint(x: 0.0,y: 0.5)
         greenGradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         greenGradientView.layer.insertSublayer(greenGradient, atIndex: 0)
         
         var blueGradient = CAGradientLayer(layer: blueGradientView.layer)
         blueGradient.frame = CGRect(x: 0,y: 0,width: blueGradientView.frame.size.width,height: blueGradientView.frame.size.height)
-        blueGradient.colors = NSArray(objects: UIColor.blackColor().CGColor, UIColor.blueColor().CGColor)
+        blueGradient.colors = [UIColor.blackColor().CGColor, UIColor.blueColor().CGColor]
         blueGradient.startPoint = CGPoint(x: 0.0,y: 0.5)
         blueGradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         blueGradientView.layer.insertSublayer(blueGradient, atIndex: 0)

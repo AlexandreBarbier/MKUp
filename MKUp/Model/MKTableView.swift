@@ -25,14 +25,14 @@ class MKTableView: MKView {
         super.init(coder: aDecoder)
         self.tableview = self.getMainSubview()!
         tableview.delegate = self.delegate
-        cellTitle = aDecoder.decodeObjectForKey("cellTitle") as String
-        cellDetail = aDecoder.decodeObjectForKey("cellDetail") as String
+        cellTitle = aDecoder.decodeObjectForKey("cellTitle") as! String
+        cellDetail = aDecoder.decodeObjectForKey("cellDetail") as! String
         self.longPressActions.append(UIAlertAction(title: "Customise Cell", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.cellTitle = textf.text
-                let textg = alert.textFields![1] as UITextField
+                let textg = alert.textFields![1] as! UITextField
                 self.cellDetail = textg.text
                 self.tableview.reloadData()
             })
@@ -56,37 +56,6 @@ class MKTableView: MKView {
         aCoder.encodeObject(cellDetail, forKey: "cellDetail")
     }
     
-    override init() {
-        super.init()
-        
-        tableview.frame = self.bounds
-        tableview.backgroundColor = UIColor.clearColor()
-        tableview.userInteractionEnabled = false
-        tableview.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        self.addSubview(tableview)
-        
-        self.longPressActions.append(UIAlertAction(title: "Customise Cell", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
-            var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-            var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
-                self.cellTitle = textf.text
-                let textg = alert.textFields![1] as UITextField
-                self.cellDetail = textg.text
-                self.tableview.reloadData()
-            })
-            alert.addAction(setT)
-            alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-                textField.placeholder = self.cellTitle
-            })
-            alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-                textField.placeholder = self.cellDetail
-            })
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (alertAction) -> Void in
-                alert.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            self.controller?.presentViewController(alert, animated: true, completion: nil)
-        }))
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,9 +70,9 @@ class MKTableView: MKView {
         self.longPressActions.append(UIAlertAction(title: "Customise Cell", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set title", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 self.cellTitle = textf.text
-                let textg = alert.textFields![1] as UITextField
+                let textg = alert.textFields![1] as! UITextField
                 self.cellDetail = textg.text
                 self.tableview.reloadData()
             })

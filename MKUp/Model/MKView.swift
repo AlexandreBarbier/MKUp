@@ -124,22 +124,9 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
         }
     }
     
-    override init() {
-        super.init()
-        self.userInteractionEnabled = true
-        var dragGesture = UIPanGestureRecognizer(target: self, action: "dragView:")
-        var pinchGesture = UIPinchGestureRecognizer(target: self, action: "zoomView:")
-        dragGesture.maximumNumberOfTouches = 1
-        if NSStringFromClass(self.dynamicType) != NSStringFromClass(MKView.self) {
-            self.addGestureRecognizer(dragGesture)
-            self.addGestureRecognizer(pinchGesture)
-        }
-        
-        
-    }
     
     func getMainSubview<T>() -> T? {
-        for subV in self.subviews as [UIView] {
+        for subV in self.subviews as! [UIView] {
             if subV is T {
                 return subV as? T
             }
@@ -244,8 +231,8 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
     func setSize(sender:UIButton) -> Void {
         var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         var setT = UIAlertAction(title: "Set Size", style: .Default, handler: { (_) -> Void in
-            let width = alert.textFields![0] as UITextField
-            let height = alert.textFields![1] as UITextField
+            let width = alert.textFields![0] as! UITextField
+            let height = alert.textFields![1] as! UITextField
             if width.text == "" || width.text == "0" {
                 width.text = "\(self.frame.size.width)"
             }
@@ -286,7 +273,7 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
     func cornerRadius(sender:UIButton) -> Void {
         var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         var setT = UIAlertAction(title: "Set Corner", style: .Default, handler: { (_) -> Void in
-            let corner = alert.textFields![0] as UITextField
+            let corner = alert.textFields![0] as! UITextField
             if corner.text == "" || corner.text == "0" {
                 corner.text = "\(self.frame.size.width)"
             }
@@ -378,7 +365,7 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.infoView.alpha = 1.0
                 })
-                for view : UIView in self.controller!.view.subviews as [UIView] {
+                for view : UIView in self.controller!.view.subviews as! [UIView] {
                     if view != self && view.alpha == 1.0 {
                         UIView.animateWithDuration(0.2, animations: { () -> Void in
                             view.alpha = 0.5
@@ -414,7 +401,7 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
                                 self.infoView.hidden = true
                             }
                     })
-                    for view : UIView in controller.view.subviews as [UIView] {
+                    for view : UIView in controller.view.subviews as! [UIView] {
                         if view != self && view.alpha == 0.5 {
                             UIView.animateWithDuration(0.2, animations: { () -> Void in
                                 view.alpha = 1
@@ -437,7 +424,7 @@ class MKView: UIView, Printable, UIGestureRecognizerDelegate, MKColorPickerDeleg
     
     override func removeFromSuperview() {
         if self is MKTableView {
-            var t = self as MKTableView
+            var t = self as! MKTableView
             t.tableview.removeFromSuperview()
         }
         customisationAction.removeAll(keepCapacity: false)

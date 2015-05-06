@@ -17,7 +17,7 @@ class MKTabBarView: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set number of Item", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set numbers of items", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 var nOI = textf.text.toInt()
                 if let number = nOI {
                     var items = [UITabBarItem]()
@@ -56,7 +56,7 @@ class MKTabBarView: MKView {
         self.longPressActions.append(UIAlertAction(title: "Set number of Item", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
             var alert = UIAlertController(title: "Customize", message: "", preferredStyle: UIAlertControllerStyle.Alert)
             var setT = UIAlertAction(title: "Set numbers of items", style: .Default, handler: { (_) -> Void in
-                let textf = alert.textFields![0] as UITextField
+                let textf = alert.textFields![0] as! UITextField
                 var nOI = textf.text.toInt()
                 if let number = nOI {
                     var items = [UITabBarItem]()
