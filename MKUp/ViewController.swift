@@ -163,7 +163,7 @@ UICollectionViewDataSource {
     
     func previewMode(sender:UIButton) {
         self.isInPreviewMode = !self.isInPreviewMode
-
+        
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             var alpha = self.projectTools.alpha
             self.projectTools.alpha = 1 - alpha

@@ -24,6 +24,8 @@
 		8D2AFC7519E58BF80018F3B4 /* MKInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC6E19E58BF80018F3B4 /* MKInput.swift */; };
 		8D2AFC7619E58BF80018F3B4 /* MKSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC6F19E58BF80018F3B4 /* MKSearchBar.swift */; };
 		8D2AFC7719E58BF80018F3B4 /* MKProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC7019E58BF80018F3B4 /* MKProject.swift */; };
+		8D6BAECB1AFE756400AD96AB /* ABCrashLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */; };
+		8D6BAECC1AFE756400AD96AB /* ABCrashLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D90EA631AFA64D800EC55CD /* ABUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F3491A815D28003E307B /* MKCollectionView.swift */; };
 		8D93F34F1A816C63003E307B /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */; };
@@ -39,12 +41,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8D237ED31AFE751B00F6D57F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DFA574B1A217A730062041D;
+			remoteInfo = ABCrashLog;
+		};
+		8D237ED51AFE751B00F6D57F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DFA57561A217A730062041D;
+			remoteInfo = ABCrashLogTests;
+		};
 		8D2AFC4F19E58B820018F3B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8D2AFC3119E58B820018F3B4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8D2AFC3819E58B820018F3B4;
 			remoteInfo = MKUp;
+		};
+		8D6BAECD1AFE756400AD96AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DFA574A1A217A730062041D;
+			remoteInfo = ABCrashLog;
 		};
 		8D90EA5D1AFA649D00EC55CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -76,6 +99,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8D6BAECC1AFE756400AD96AB /* ABCrashLog.framework in Embed Frameworks */,
 				8D90EA631AFA64D800EC55CD /* ABUIKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -85,6 +109,7 @@
 
 /* Begin PBXFileReference section */
 		8D1C18F91A0B08A400C12FEA /* MKLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKLabel.swift; sourceTree = "<group>"; };
+		8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ABCrashLog.xcodeproj; path = ../Perso/SwiftLib/ABCrashLog/ABCrashLog.xcodeproj; sourceTree = "<group>"; };
 		8D2AFC3919E58B820018F3B4 /* MKUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MKUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2AFC3D19E58B820018F3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D2AFC3E19E58B820018F3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D6BAECB1AFE756400AD96AB /* ABCrashLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +164,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D237ECF1AFE751B00F6D57F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */,
+				8D237ED61AFE751B00F6D57F /* ABCrashLogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8D2AFC3019E58B820018F3B4 = {
 			isa = PBXGroup;
 			children = (
+				8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */,
 				8D90EA581AFA649D00EC55CD /* ABUIKit.xcodeproj */,
 				8D69F25E19E9AF5600361CC5 /* AssetsLibrary.framework */,
 				8D2AFC3B19E58B820018F3B4 /* MKUp */,
@@ -283,6 +319,7 @@
 			);
 			dependencies = (
 				8D90EA651AFA64D800EC55CD /* PBXTargetDependency */,
+				8D6BAECE1AFE756400AD96AB /* PBXTargetDependency */,
 			);
 			name = MKUp;
 			productName = MKUp;
@@ -338,6 +375,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8D237ECF1AFE751B00F6D57F /* Products */;
+					ProjectRef = 8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */;
+				},
+				{
 					ProductGroup = 8D90EA591AFA649D00EC55CD /* Products */;
 					ProjectRef = 8D90EA581AFA649D00EC55CD /* ABUIKit.xcodeproj */;
 				},
@@ -351,6 +392,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ABCrashLog.framework;
+			remoteRef = 8D237ED31AFE751B00F6D57F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8D237ED61AFE751B00F6D57F /* ABCrashLogTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ABCrashLogTests.xctest;
+			remoteRef = 8D237ED51AFE751B00F6D57F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -434,6 +489,11 @@
 			isa = PBXTargetDependency;
 			target = 8D2AFC3819E58B820018F3B4 /* MKUp */;
 			targetProxy = 8D2AFC4F19E58B820018F3B4 /* PBXContainerItemProxy */;
+		};
+		8D6BAECE1AFE756400AD96AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ABCrashLog;
+			targetProxy = 8D6BAECD1AFE756400AD96AB /* PBXContainerItemProxy */;
 		};
 		8D90EA651AFA64D800EC55CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

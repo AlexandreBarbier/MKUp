@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import ABCrashLog
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var url : NSURL?
     var window: UIWindow?
-
+    var crashLogger = ABCrashLogger
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
         return true
     }
 
