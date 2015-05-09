@@ -26,6 +26,7 @@
 		8D2AFC7719E58BF80018F3B4 /* MKProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC7019E58BF80018F3B4 /* MKProject.swift */; };
 		8D6BAECB1AFE756400AD96AB /* ABCrashLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */; };
 		8D6BAECC1AFE756400AD96AB /* ABCrashLog.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D237ED41AFE751B00F6D57F /* ABCrashLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D6BAED11AFE7F1500AD96AB /* MKUpConnections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6BAED01AFE7F1500AD96AB /* MKUpConnections.swift */; };
 		8D90EA631AFA64D800EC55CD /* ABUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F3491A815D28003E307B /* MKCollectionView.swift */; };
 		8D93F34F1A816C63003E307B /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */; };
@@ -131,6 +132,7 @@
 		8D2AFC6F19E58BF80018F3B4 /* MKSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKSearchBar.swift; sourceTree = "<group>"; };
 		8D2AFC7019E58BF80018F3B4 /* MKProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKProject.swift; sourceTree = "<group>"; };
 		8D69F25E19E9AF5600361CC5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8D6BAED01AFE7F1500AD96AB /* MKUpConnections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKUpConnections.swift; sourceTree = "<group>"; };
 		8D90EA581AFA649D00EC55CD /* ABUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ABUIKit.xcodeproj; path = ../Perso/SwiftLib/ABUIKit/ABUIKit.xcodeproj; sourceTree = "<group>"; };
 		8D93F3491A815D28003E307B /* MKCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionView.swift; sourceTree = "<group>"; };
 		8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				8DA607F91A21568D00D26AEB /* MKUpColors.swift */,
+				8D6BAED01AFE7F1500AD96AB /* MKUpConnections.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				8DF3A2981A4AB3A9002BDD49 /* MKNavigationViewController.swift in Sources */,
 				8DA607F31A21441C00D26AEB /* ProjectDetailViewController.swift in Sources */,
 				8DE899CE19F40A0F0018D225 /* MKTableView.swift in Sources */,
+				8D6BAED11AFE7F1500AD96AB /* MKUpConnections.swift in Sources */,
 				8D2AFC7719E58BF80018F3B4 /* MKProject.swift in Sources */,
 				8D2AFC7219E58BF80018F3B4 /* MKImageView.swift in Sources */,
 				8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */,

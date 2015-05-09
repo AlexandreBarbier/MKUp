@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
+        MKUpConnections.ping("launch", info: "app MKUp launched", user:["id":"554e6a45ff3333dc1287a43c"], completion:nil)
+      
         return true
     }
 
