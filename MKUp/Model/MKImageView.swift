@@ -23,7 +23,9 @@ class MKImageView: MKView {
         if self.imageV.image == nil {
             self.imageV.image = UIImage(named: "imageIcon")
         }
-        self.longPressActions.append(UIAlertAction(title: "Library", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
+        self.longPressActions.append(UIAlertAction(title: "Library",
+                                                   style: UIAlertActionStyle.Default,
+                                                 handler: { (alertAction) -> Void in
             self.pickerView.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.pickerView.delegate = self.delegate
             self.pickerView.view.tag = self.tag
@@ -44,7 +46,9 @@ class MKImageView: MKView {
         imageV.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         self.addSubview(imageV)
         
-        self.longPressActions.append(UIAlertAction(title: "Library", style: UIAlertActionStyle.Default, handler: { (alertAction) -> Void in
+        self.longPressActions.append(UIAlertAction(title: "Library",
+                                                   style: UIAlertActionStyle.Default,
+                                                 handler: { (alertAction) -> Void in
             self.pickerView.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
             self.pickerView.delegate = self.delegate
             self.pickerView.view.tag = self.tag

@@ -10,22 +10,34 @@ import UIKit
 
 var saveQueue = NSOperationQueue()
 
+///
+/// project class extend NSObject NSCoding and Printable
+///
+
 class MKProject : NSObject, NSCoding, Printable {
+    /// project's views
     var views : [MKView] = []
+    /// project's name
     var name : String = ""
+    /// project's update date
     var update : NSDate = NSDate()
+    /// project's creation date
     var creation : NSDate?
+    /// project's physic URL
     var fileURL : NSURL?
+    /// project's image preview
     var preview : UIImage?
+    /// project's root view
     var rootView : UIScrollView?
+    /// project's view number
     var nbView : Int = 1
+    /// project's notes
     var notes : NSAttributedString?
+    
     var isInPreview : Bool = false {
         didSet {
                 for view in self.views {
-                  //  view.userInteractionEnabled = !isInPreview
                     for subv in view.subviews as! [UIView] {
-    
                         if subv.isKindOfClass(MKCollectionView.self) {
                             var v = subv as! MKCollectionView
                             v.collectionView!.userInteractionEnabled = !v.collectionView!.userInteractionEnabled
@@ -50,12 +62,13 @@ class MKProject : NSObject, NSCoding, Printable {
                 }
             }
     }
+
     override var description: String {
         get {
             return "\n--  MKProject --\n name : \(self.name)\n creation date : \(self.creation)\n update date : \(self.update)\n --\n"
         }
     }
-    
+
     init (name:String) {
         super.init()
         self.name = name
@@ -70,7 +83,6 @@ class MKProject : NSObject, NSCoding, Printable {
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.views, forKey: "views")
         aCoder.encodeObject(self.name, forKey: "name")
-
         aCoder.encodeObject(self.update, forKey: "update")
         aCoder.encodeInteger(self.nbView, forKey: "nbView")
         if let create = creation {
@@ -104,7 +116,9 @@ class MKProject : NSObject, NSCoding, Printable {
         var bundlePath = NSBundle.mainBundle().bundleIdentifier
         return "\(documentDirectory)/\(bundlePath!).projects"
     }
-    
+    /**
+        save the project on disk
+    */
     func save() {
         var error : NSError? = NSError()
         saveQueue.name = "Save"
@@ -136,13 +150,25 @@ class MKProject : NSObject, NSCoding, Printable {
         }
         
     }
+    /**
+    load project
     
+    :param: name project's name
+    
+    :returns: the project or nil if the name was not found
+    */
     class func load(name:String) -> MKProject? {
         var path = getDirectoryPath()
         var project = NSKeyedUnarchiver.unarchiveObjectWithFile("\(path)/\(name).mkup") as! MKProject?
         return project
     }
+    /**
+    load project
     
+    :param: url project's url
+    
+    :returns: the project or nil if the url was not found
+    */
     class func loadProject(url:NSURL) -> MKProject? {
         var project = NSKeyedUnarchiver.unarchiveObjectWithFile(url.path!) as! MKProject?
         project?.fileURL = url

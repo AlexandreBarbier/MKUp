@@ -24,9 +24,6 @@
 		8D2AFC7519E58BF80018F3B4 /* MKInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC6E19E58BF80018F3B4 /* MKInput.swift */; };
 		8D2AFC7619E58BF80018F3B4 /* MKSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC6F19E58BF80018F3B4 /* MKSearchBar.swift */; };
 		8D2AFC7719E58BF80018F3B4 /* MKProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2AFC7019E58BF80018F3B4 /* MKProject.swift */; };
-		8D69F25F19E9AF5600361CC5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D69F25E19E9AF5600361CC5 /* AssetsLibrary.framework */; };
-		8D90EA611AFA64BC00EC55CD /* ABUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */; };
-		8D90EA621AFA64D800EC55CD /* ABUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */; };
 		8D90EA631AFA64D800EC55CD /* ABUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F3491A815D28003E307B /* MKCollectionView.swift */; };
 		8D93F34F1A816C63003E307B /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */; };
@@ -128,9 +125,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D90EA611AFA64BC00EC55CD /* ABUIKit.framework in Frameworks */,
-				8D90EA621AFA64D800EC55CD /* ABUIKit.framework in Frameworks */,
-				8D69F25F19E9AF5600361CC5 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

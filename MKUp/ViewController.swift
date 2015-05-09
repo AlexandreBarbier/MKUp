@@ -9,7 +9,15 @@
 import UIKit
 import ABUIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, MKViewDelegate, UIDocumentInteractionControllerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate,
+UITextViewDelegate, MKViewDelegate,
+UIDocumentInteractionControllerDelegate,
+UITableViewDataSource,
+UITableViewDelegate,
+UICollectionViewDelegate,
+UICollectionViewDataSource {
 
     var selectedView : MKView?
     var currentProject : MKProject?
@@ -55,12 +63,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         viewNameLabel.textAlignment = NSTextAlignment.Center
         viewNameLabel.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         
-        self.view.addSubview(viewNameLabel)
-        self.view.addSubview(projectRootView)
-        self.view.addSubview(projectTools)
-        self.view.addSubview(buttonTools)
-        self.view.addSubview(goLeftbutton)
-        self.view.addSubview(goRightbutton)
+        
+        self.view.addSubviews([viewNameLabel,projectRootView,projectTools,buttonTools,goLeftbutton,goRightbutton])
         projectRootView.frame = self.view.frame
         projectRootView.contentSize = self.view.frame.size
         projectRootView.pagingEnabled = true

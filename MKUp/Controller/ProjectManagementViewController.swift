@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Social
 
 class ProjectManagerViewController: UITableViewController {
+    
     var displayedDataSource : [MKProject]?
 
     override func viewDidLoad() {
@@ -54,26 +54,40 @@ class ProjectManagerViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header = UIView(frame: CGRect(x: 0,y: 0, width: self.view.frame.size.width, height: 50))
-        var close = UIButton(frame: CGRect(x: self.view.frame.size.width - 58,y: 0, width: 50, height: 50))
-        var addProject = UIButton(frame: CGRect(x: 8,y: 0, width: 50, height: 50))
+        var header      = UIView(frame: CGRect(x: 0,
+                                               y: 0,
+                                           width: self.view.frame.size.width,
+                                          height: 50))
+        
+        var close       = UIButton(frame: CGRect(x: self.view.frame.size.width - 58,
+                                                 y: 0,
+                                             width: 50,
+                                            height: 50))
+        
+        var addProject  = UIButton(frame: CGRect(x: 8,
+                                                 y: 0,
+                                             width: 50,
+                                            height: 50))
+        
+        var title       = UILabel(frame: header.frame)
+        
         addProject.setTitle("New", forState: UIControlState.Normal)
         addProject.addTarget(self, action: "createNewProject", forControlEvents: UIControlEvents.TouchUpInside)
         addProject.setTitleColor(UIColor.MKBrownColor(), forState: UIControlState.Normal)
         addProject.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin
+        
         close.setTitle("Close", forState: UIControlState.Normal)
         close.addTarget(self, action: "closeView", forControlEvents: UIControlEvents.TouchUpInside)
         close.setTitleColor(UIColor.MKBrownColor(), forState: UIControlState.Normal)
         close.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin
-        var title = UILabel(frame: header.frame)
+        
         title.text = "Projects"
         title.textAlignment = NSTextAlignment.Center
         title.textColor = UIColor.MKDarkBrownColor()
         title.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
+        
         header.backgroundColor = UIColor.MKGreenColor()
-        header.addSubview(addProject)
-        header.addSubview(close)
-        header.addSubview(title)
+        header.addSubviews([addProject,close,title])
         return header
     }
     

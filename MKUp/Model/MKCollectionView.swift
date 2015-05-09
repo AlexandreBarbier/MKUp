@@ -29,7 +29,7 @@ class MKCollectionView: MKView {
         collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collectionView!.backgroundColor = UIColor.clearColor()
         collectionView!.userInteractionEnabled = false
-                collectionView!.registerNib(UINib(nibName: "MKCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
+        collectionView!.registerNib(UINib(nibName: "MKCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
         collectionView!.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         self.addSubview(collectionView!)
         self.collectionView!.delegate = self.delegate

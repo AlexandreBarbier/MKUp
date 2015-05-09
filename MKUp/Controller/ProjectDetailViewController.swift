@@ -49,9 +49,8 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
         title.textColor = UIColor.MKDarkBrownColor()
         title.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
         header.backgroundColor = UIColor.MKGreenColor()
-        header.addSubview(closeButton)
-        header.addSubview(editButton)
-        header.addSubview(title)
+        header.addSubviews([closeButton,editButton,title])
+
         toolView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 44)
         toolView.backgroundColor = UIColor.MKBrownColor()
         var delete = UIButton(frame: toolView.bounds)
@@ -59,8 +58,8 @@ class ProjectDetailViewController: UICollectionViewController, UIGestureRecogniz
         delete.setTitleColor(UIColor.MKWhiteColor(), forState: UIControlState.Normal)
         delete.addTarget(self, action: "deleteViews", forControlEvents: UIControlEvents.TouchUpInside)
         toolView.addSubview(delete)
-        self.view.addSubview(toolView)
-        self.view.addSubview(header)
+        self.view.addSubviews([toolView,header])
+
         self.collectionView!.backgroundColor = UIColor.MKGreyColor()
         self.collectionView!.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         self.collectionView!.showsHorizontalScrollIndicator = false
