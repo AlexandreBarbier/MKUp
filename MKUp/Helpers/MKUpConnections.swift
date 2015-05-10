@@ -17,20 +17,24 @@ class MKUpConnections: NSObject {
         post("ping", param: ["event":event,"info":info, "user":user], completion: completion)
     }
     
-    class func get(endpoint:String, param: Dictionary<String, AnyObject>, completion:((success:Bool, data:NSData?)->Void)?) {
+    class func get(endpoint:String,
+                      param:Dictionary<String, AnyObject>?,
+                 completion:((success:Bool, data:NSData?)->Void)?) {
         var urlEncodedParam = ""
-        for (key:String, value) in param
-        {
-            if urlEncodedParam == ""
+        if let parameters = param {
+            for (key:String, value) in parameters
             {
-                urlEncodedParam = "?"
+                if urlEncodedParam == ""
+                {
+                    urlEncodedParam = "?"
+                }
+                else
+                {
+                    urlEncodedParam += "&"
+                }
+                urlEncodedParam += "\(key)=\(value)"
+                
             }
-            else
-            {
-                urlEncodedParam += "&"
-            }
-            urlEncodedParam += "\(key)=\(value)"
-            
         }
         var url = "\(MKUpAPIURL)\(endpoint)/\(urlEncodedParam)"
         var request = NSMutableURLRequest(URL: NSURL(string: url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
@@ -56,10 +60,12 @@ class MKUpConnections: NSObject {
         }
     }
     
-    class func post(endpoint:String, param: Dictionary<String, AnyObject>, completion:((success:Bool, data:AnyObject)->Void)?) {
+    class func post(endpoint:String, param: Dictionary<String, AnyObject>?, completion:((success:Bool, data:AnyObject)->Void)?) {
         var url = "\(MKUpAPIURL)\(endpoint)/"
         var request = NSMutableURLRequest(URL: NSURL(string: url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(param, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        if  let parameter = param {
+            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(parameter, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        }
         request.HTTPMethod = "POST"
         
         request.setValue(String(request.HTTPBody!.length), forHTTPHeaderField: "Content-Length")
@@ -80,18 +86,17 @@ class MKUpConnections: NSObject {
         }
     }
     
-    class func downloadFile(endpoint:String, param: Dictionary<String, NSData>, completion:((success:Bool, data:AnyObject)->Void)?) {
+    class func downloadFile(endpoint:String, param: Dictionary<String, NSData>, completion:((success:Bool, data:AnyObject?)->Void)?) {
         var url = "\(MKUpAPIURL)\(endpoint)/"
         var request = NSMutableURLRequest(URL: NSURL(string: url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
         
         get(endpoint, param: param) { (success, data) -> Void in
             
             if success {
-                var file = data
-                var p = MKProject.loadProjectFromData(file!)
+                completion?(success: success, data: data)
             }
             else {
-                
+                completion?(success: success, data: nil)
             }
         }
     }
@@ -99,7 +104,6 @@ class MKUpConnections: NSObject {
     class func uploadFile(endpoint:String, param: Dictionary<String, NSData>, completion:((success:Bool, data:AnyObject)->Void)?) {
         var url = "\(MKUpAPIURL)\(endpoint)/"
         var request = NSMutableURLRequest(URL: NSURL(string: url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        
         
         request.HTTPMethod = "POST"
         var body = NSMutableData()

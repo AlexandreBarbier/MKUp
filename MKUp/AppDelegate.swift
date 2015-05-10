@@ -16,19 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var crashLogger = ABCrashLogger
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
     //    MKUpConnections.ping("launch", info: "app MKUp launched", user:["id":"554e6a45ff3333dc1287a43c"], completion:nil)
-        MKUser.get("554e6a45ff3333dc1287a43c", completion: { (success, user, error) -> Void in
-            if success {
-            println(user)
-                user!.getTeam({ (success, user, error) -> Void in
-                
-                })
-            }
-
-        
-            
-        })
+      MKTeam.listTeams { (success, teams) -> Void in
+        println(teams)
+        }
+//        MKUser.get("554e6a45ff3333dc1287a43c", completion: { (success, user, error) -> Void in
+//            if success {
+//            println(user)
+//                user!.getTeam({ (success, users, error) -> Void in
+//                    println(users)
+//                })
+//            }
+//
+//        
+//            
+//        })
         
         return true
     }

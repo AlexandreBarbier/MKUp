@@ -8,12 +8,13 @@
 
 import UIKit
 import ABModel
+import ABUIKit
 
 class MKUser: ABModel {
-    var username        :String = ""
+    var username    :String = ""
     var firstname   :String = ""
-    var id   :String = ""
-    var team        :MKTeam = MKTeam()
+    var id          :String = ""
+    var team        :String = ""
     
     override var description :String {
         get
@@ -22,22 +23,34 @@ class MKUser: ABModel {
         }
     }
     
+    class func create(username:String, firstname:String) {
+        MKUpConnections.post("user", param:["username":username, "firstname":firstname]) { (success, data) -> Void in
+            
+        }
+    }
+    
+    func addToTeam(teamId:String) {
+        MKUpConnections.put("user/\(self.id)", param: ["team":teamId]) { (success, data) -> Void in
+            
+        }
+    }
+    
     class func get(userId:String, completion:(success:Bool, user:MKUser?, error:AnyObject?) -> Void) {
         MKUpConnections.get("users/\(userId)", param: [:]) { (success, data) -> Void in
             if success {
-                var response = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: nil) as? Dictionary<String, AnyObject>
-                var us = MKUser(dictionary: response!["response"]! as! Dictionary<String, AnyObject>)
+                var response = data!.toJSON() 
+                var us = MKUser(dictionary: response["response"]! as! Dictionary<String, AnyObject>)
                 completion(success: success, user: us, error: nil)
             }
         }
     }
     
-    func getTeam(completion:(success:Bool, user:[MKUser]?, error:AnyObject?)->Void) {
+    func getTeam(completion:(success:Bool, users:[MKUser]?, error:AnyObject?)->Void) {
         MKUpConnections.get("users/\(self.id)/team", param: [:]) { (success, data) -> Void in
             if success {
-                var response = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves, error: nil) as? Dictionary<String, AnyObject>
-                var us = MKTeam(dictionary: response!["response"]! as! Dictionary<String, AnyObject>)
-                completion(success: success, user: us.users, error: nil)
+                var response = data!.toJSON()
+                var us = MKTeam(dictionary: response["response"]! as! Dictionary<String, AnyObject>)
+                completion(success: success, users: us.users, error: nil)
             }
         }
     }

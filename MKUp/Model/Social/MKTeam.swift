@@ -12,20 +12,26 @@ import ABModel
 class MKTeam: ABModel {
     var name:String = ""
     var id:String = ""
-    var users:[MKUser] = [MKUser]()
+    var users = [MKUser()]
     override var description :String {
         get
         {
             return "\nMKTeam :\n\tid:\(id)\n\tusername: \(name)\n\tusers:\(users) \n\n"
         }
     }
-    required override init() {
-        super.init()
-    }
     
-    required init(dictionary: Dictionary<String, AnyObject>) {
-        super.init(dictionary: dictionary)
+    class func listTeams(completion:(success:Bool, teams:[MKTeam]?)->Void) {
+        MKUpConnections.get("teams", param: [:]) { (success, data) -> Void in
+            if success {
+                var response = data!.toJSON()
+                var allTeams = [MKTeam]()
+                for dico:Dictionary<String, AnyObject> in  response["response"] as! [Dictionary<String, AnyObject>] {
+                    allTeams.append(MKTeam(dictionary: dico))
+                }
+
+                completion(success: success, teams: allTeams)
+            }
+        }
         
     }
-    
 }
