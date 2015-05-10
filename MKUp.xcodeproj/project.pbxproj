@@ -31,6 +31,9 @@
 		8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F3491A815D28003E307B /* MKCollectionView.swift */; };
 		8D93F34F1A816C63003E307B /* MKCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */; };
 		8D93F3501A816C63003E307B /* MKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D93F34E1A816C63003E307B /* MKCollectionViewCell.xib */; };
+		8DA102FD1AFF136300F1A219 /* MKUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA102FC1AFF136300F1A219 /* MKUser.swift */; };
+		8DA102FF1AFF13B900F1A219 /* MKTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA102FE1AFF13B900F1A219 /* MKTeam.swift */; };
+		8DA103011AFF145000F1A219 /* MKProj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA103001AFF145000F1A219 /* MKProj.swift */; };
 		8DA607F31A21441C00D26AEB /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA607F21A21441C00D26AEB /* ProjectDetailViewController.swift */; };
 		8DA607F71A21534700D26AEB /* ProjectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA607F61A21534700D26AEB /* ProjectViewCell.swift */; };
 		8DA607FA1A21568D00D26AEB /* MKUpColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA607F91A21568D00D26AEB /* MKUpColors.swift */; };
@@ -39,6 +42,8 @@
 		8DE8CF721A6AE1D90047BD5A /* MKTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE8CF711A6AE1D90047BD5A /* MKTabBarView.swift */; };
 		8DF3A2981A4AB3A9002BDD49 /* MKNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3A2971A4AB3A9002BDD49 /* MKNavigationViewController.swift */; };
 		8DF3A29C1A4AB51D002BDD49 /* MKTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF3A29B1A4AB51D002BDD49 /* MKTabBarViewController.swift */; };
+		8DF90DD21AFF16BF00153D96 /* ABModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA103081AFF168D00F1A219 /* ABModel.framework */; };
+		8DF90DD31AFF16C000153D96 /* ABModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA103081AFF168D00F1A219 /* ABModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +96,27 @@
 			remoteGlobalIDString = AC3E696319B4C8D600681A5A;
 			remoteInfo = ABUIKit;
 		};
+		8DA103071AFF168D00F1A219 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC3E690319B4C84500681A5A;
+			remoteInfo = ABModel;
+		};
+		8DA103091AFF168D00F1A219 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AC3E690E19B4C84500681A5A;
+			remoteInfo = ABModelTests;
+		};
+		8DF90DD41AFF16C000153D96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = AC3E690219B4C84500681A5A;
+			remoteInfo = ABModel;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +128,7 @@
 			files = (
 				8D6BAECC1AFE756400AD96AB /* ABCrashLog.framework in Embed Frameworks */,
 				8D90EA631AFA64D800EC55CD /* ABUIKit.framework in Embed Frameworks */,
+				8DF90DD31AFF16C000153D96 /* ABModel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +164,10 @@
 		8D93F3491A815D28003E307B /* MKCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionView.swift; sourceTree = "<group>"; };
 		8D93F34D1A816C63003E307B /* MKCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCollectionViewCell.swift; sourceTree = "<group>"; };
 		8D93F34E1A816C63003E307B /* MKCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKCollectionViewCell.xib; sourceTree = "<group>"; };
+		8DA102FC1AFF136300F1A219 /* MKUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKUser.swift; sourceTree = "<group>"; };
+		8DA102FE1AFF13B900F1A219 /* MKTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKTeam.swift; sourceTree = "<group>"; };
+		8DA103001AFF145000F1A219 /* MKProj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKProj.swift; sourceTree = "<group>"; };
+		8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ABModel.xcodeproj; path = ../Perso/SwiftLib/ABModel/ABModel.xcodeproj; sourceTree = "<group>"; };
 		8DA607F21A21441C00D26AEB /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
 		8DA607F61A21534700D26AEB /* ProjectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectViewCell.swift; sourceTree = "<group>"; };
 		8DA607F91A21568D00D26AEB /* MKUpColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKUpColors.swift; sourceTree = "<group>"; };
@@ -153,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D6BAECB1AFE756400AD96AB /* ABCrashLog.framework in Frameworks */,
+				8DF90DD21AFF16BF00153D96 /* ABModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +210,7 @@
 		8D2AFC3019E58B820018F3B4 = {
 			isa = PBXGroup;
 			children = (
+				8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */,
 				8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */,
 				8D90EA581AFA649D00EC55CD /* ABUIKit.xcodeproj */,
 				8D69F25E19E9AF5600361CC5 /* AssetsLibrary.framework */,
@@ -263,6 +296,7 @@
 		8D2AFC7919E58C0B0018F3B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8DA102F91AFF133500F1A219 /* Social */,
 				8D2AFC6C19E58BF80018F3B4 /* MKButton.swift */,
 				8D93F3491A815D28003E307B /* MKCollectionView.swift */,
 				8D2AFC6B19E58BF80018F3B4 /* MKImageView.swift */,
@@ -283,6 +317,25 @@
 			children = (
 				8D90EA5E1AFA649D00EC55CD /* ABUIKit.framework */,
 				8D90EA601AFA649D00EC55CD /* ABUIKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DA102F91AFF133500F1A219 /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				8DA102FC1AFF136300F1A219 /* MKUser.swift */,
+				8DA102FE1AFF13B900F1A219 /* MKTeam.swift */,
+				8DA103001AFF145000F1A219 /* MKProj.swift */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		8DA103031AFF168D00F1A219 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DA103081AFF168D00F1A219 /* ABModel.framework */,
+				8DA1030A1AFF168D00F1A219 /* ABModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,6 +376,7 @@
 			dependencies = (
 				8D90EA651AFA64D800EC55CD /* PBXTargetDependency */,
 				8D6BAECE1AFE756400AD96AB /* PBXTargetDependency */,
+				8DF90DD51AFF16C000153D96 /* PBXTargetDependency */,
 			);
 			name = MKUp;
 			productName = MKUp;
@@ -382,6 +436,10 @@
 					ProjectRef = 8D237ECE1AFE751B00F6D57F /* ABCrashLog.xcodeproj */;
 				},
 				{
+					ProductGroup = 8DA103031AFF168D00F1A219 /* Products */;
+					ProjectRef = 8DA103021AFF168D00F1A219 /* ABModel.xcodeproj */;
+				},
+				{
 					ProductGroup = 8D90EA591AFA649D00EC55CD /* Products */;
 					ProjectRef = 8D90EA581AFA649D00EC55CD /* ABUIKit.xcodeproj */;
 				},
@@ -423,6 +481,20 @@
 			remoteRef = 8D90EA5F1AFA649D00EC55CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8DA103081AFF168D00F1A219 /* ABModel.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ABModel.framework;
+			remoteRef = 8DA103071AFF168D00F1A219 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8DA1030A1AFF168D00F1A219 /* ABModelTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ABModelTests.xctest;
+			remoteRef = 8DA103091AFF168D00F1A219 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -458,6 +530,7 @@
 				8DA607F31A21441C00D26AEB /* ProjectDetailViewController.swift in Sources */,
 				8DE899CE19F40A0F0018D225 /* MKTableView.swift in Sources */,
 				8D6BAED11AFE7F1500AD96AB /* MKUpConnections.swift in Sources */,
+				8DA102FD1AFF136300F1A219 /* MKUser.swift in Sources */,
 				8D2AFC7719E58BF80018F3B4 /* MKProject.swift in Sources */,
 				8D2AFC7219E58BF80018F3B4 /* MKImageView.swift in Sources */,
 				8D93F34A1A815D28003E307B /* MKCollectionView.swift in Sources */,
@@ -465,6 +538,8 @@
 				8D1C18FA1A0B08A400C12FEA /* MKLabel.swift in Sources */,
 				8D2AFC6219E58BC90018F3B4 /* MKColorPickerController.swift in Sources */,
 				8D2AFC7619E58BF80018F3B4 /* MKSearchBar.swift in Sources */,
+				8DA103011AFF145000F1A219 /* MKProj.swift in Sources */,
+				8DA102FF1AFF13B900F1A219 /* MKTeam.swift in Sources */,
 				8D93F34F1A816C63003E307B /* MKCollectionViewCell.swift in Sources */,
 				8DA607FA1A21568D00D26AEB /* MKUpColors.swift in Sources */,
 				8DE381C41A2B88CD00C77FE3 /* NotesViewController.swift in Sources */,
@@ -503,6 +578,11 @@
 			isa = PBXTargetDependency;
 			name = ABUIKit;
 			targetProxy = 8D90EA641AFA64D800EC55CD /* PBXContainerItemProxy */;
+		};
+		8DF90DD51AFF16C000153D96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ABModel;
+			targetProxy = 8DF90DD41AFF16C000153D96 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

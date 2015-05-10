@@ -13,21 +13,23 @@ let MKUpAPIURL = "http://62.210.238.47:1337/"
 
 class MKUpConnections: NSObject {
     
-    class func ping(event:String, info:String, user:Dictionary<String, AnyObject>, completion:((success:Bool, data:AnyObject)->Void)?) {
+    class func ping(event:String, info:String, user:Dictionary<String, AnyObject>, completion:((success:Bool, data:AnyObject?)->Void)?) {
         post("ping", param: ["event":event,"info":info, "user":user], completion: completion)
     }
     
-    class func get(endpoint:String, param: Dictionary<String, AnyObject>, completion:((success:Bool, data:AnyObject)->Void)?) {
+    class func get(endpoint:String, param: Dictionary<String, AnyObject>, completion:((success:Bool, data:NSData?)->Void)?) {
         var urlEncodedParam = ""
-        for (key:String, value) in param {
-            if urlEncodedParam == "" {
-               urlEncodedParam = "?"
+        for (key:String, value) in param
+        {
+            if urlEncodedParam == ""
+            {
+                urlEncodedParam = "?"
             }
-            else {
-               urlEncodedParam += "&"
+            else
+            {
+                urlEncodedParam += "&"
             }
-           
-                urlEncodedParam += "\(key)=\(value)"
+            urlEncodedParam += "\(key)=\(value)"
             
         }
         var url = "\(MKUpAPIURL)\(endpoint)/\(urlEncodedParam)"
@@ -36,10 +38,20 @@ class MKUpConnections: NSObject {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: MKUpConnectionsQueue) { (response, data, error) -> Void in
             if error == nil {
-                completion?(success: true, data: data)
-            }
-            else {
-                completion?(success: false, data: error)
+                var httpResp = response as! NSHTTPURLResponse
+                if httpResp.statusCode == 200
+                {
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        completion?(success: true, data: data)
+                    })
+                    
+                }
+                else
+                {
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        completion?(success: false, data: data)
+                    })
+                }
             }
         }
     }
@@ -55,10 +67,15 @@ class MKUpConnections: NSObject {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: MKUpConnectionsQueue) { (response, data, error) -> Void in
             if error == nil {
-                completion?(success: true, data: data)
+                
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: true, data: data)
+                })
             }
             else {
-                completion?(success: false, data: error)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: false, data: error)
+                })
             }
         }
     }
@@ -70,8 +87,8 @@ class MKUpConnections: NSObject {
         get(endpoint, param: param) { (success, data) -> Void in
             
             if success {
-                var file = data as! NSData
-                var p = MKProject.loadProjectFromData(file)
+                var file = data
+                var p = MKProject.loadProjectFromData(file!)
             }
             else {
                 
@@ -82,7 +99,7 @@ class MKUpConnections: NSObject {
     class func uploadFile(endpoint:String, param: Dictionary<String, NSData>, completion:((success:Bool, data:AnyObject)->Void)?) {
         var url = "\(MKUpAPIURL)\(endpoint)/"
         var request = NSMutableURLRequest(URL: NSURL(string: url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-
+        
         
         request.HTTPMethod = "POST"
         var body = NSMutableData()
@@ -99,10 +116,14 @@ class MKUpConnections: NSObject {
         request.setValue(String(request.HTTPBody!.length), forHTTPHeaderField: "Content-Length")
         NSURLConnection.sendAsynchronousRequest(request, queue: MKUpConnectionsQueue) { (response, data, error) -> Void in
             if error == nil {
-                completion?(success: true, data: data)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: true, data: data)
+                })
             }
             else {
-                completion?(success: false, data: error)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: false, data: error)
+                })
             }
         }
     }
@@ -118,10 +139,14 @@ class MKUpConnections: NSObject {
         
         NSURLConnection.sendAsynchronousRequest(request, queue: MKUpConnectionsQueue) { (response, data, error) -> Void in
             if error == nil {
-                completion?(success: true, data: data)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: true, data: data)
+                })
             }
             else {
-                completion?(success: false, data: error)
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    completion?(success: false, data: error)
+                })
             }
         }
     }
