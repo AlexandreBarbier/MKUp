@@ -175,6 +175,12 @@ class MKProject : NSObject, NSCoding, Printable {
         return project
     }
     
+    class func loadProjectFromData(data:NSData) -> MKProject? {
+        var project = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! MKProject?
+
+        return project
+    }
+    
     func getUrl() -> NSURL {
         var path = MKProject.getDirectoryPath()
         var filePath = "\(path)/\(name).mkup"
