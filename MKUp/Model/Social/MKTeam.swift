@@ -20,6 +20,12 @@ class MKTeam: ABModel {
         }
     }
     
+    class func create(name:String) {
+        MKUpConnections.post("teams", param: ["name":name]) { (success, data) -> Void in
+            
+        }
+    }
+    
     class func listTeams(completion:(success:Bool, teams:[MKTeam]?)->Void) {
         MKUpConnections.get("teams", param: [:]) { (success, data) -> Void in
             if success {
